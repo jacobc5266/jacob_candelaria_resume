@@ -4,8 +4,15 @@ import Home from "./pages/Home.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
 import Navbar from "./components/navbar/Navbar.tsx";
+import Maintenance from "./components/maintenance/Maintenance.tsx";
+
+const maintenance = import.meta.env.VITE_MAINTENANCE === "true";
 
 function App() {
+
+    if (maintenance) {
+        return <Maintenance />
+    }
 
   return (
       <div>
