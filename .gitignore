@@ -22,3 +22,31 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Vercel
+.vercel
+
+# Environment variables
+.env
+.env.*
+
+# Build / framework artifacts
+build
+.next
+out
+
+# Coverage & test output
+coverage
+playwright-report
+cypress/videos
+cypress/screenshots
+
+# Tooling caches
+.cache
+.vite
+.turbo
+.parcel-cache
+.eslintcache
+
+# TypeScript / tooling artifacts
+*.tsbuildinfo
