@@ -1,0 +1,49 @@
+.toggle {
+    display: inline-flex;
+    gap: 6px;
+    padding: 6px;
+
+    background-color: #1f1f1f;
+    border: 1px solid #03dac6;
+    border-radius: 14px;
+
+    box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.6),
+            0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.option {
+    appearance: none;
+    border: none;
+    background: transparent;
+
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    color: #e0e0e0;
+    font-weight: 600;
+    font-size: 0.95rem;
+
+    cursor: pointer;
+
+    transition:
+            background-color 140ms ease,
+            color 140ms ease,
+            box-shadow 140ms ease,
+            border-color 140ms ease;
+}
+
+.option:hover {
+    background-color: rgba(2, 193, 174, 0.18); /* #02C1AE with alpha */
+}
+
+.option:focus-visible {
+    outline: 2px solid #03dac6;
+    outline-offset: 2px;
+}
+
+.active {
+    background-color: #017c70; /* navbar teal */
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
