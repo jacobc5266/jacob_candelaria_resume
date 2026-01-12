@@ -11,19 +11,27 @@ const maintenance = import.meta.env.VITE_MAINTENANCE === "true";
 function App() {
 
     if (maintenance) {
-        return <Maintenance />
+        return <Maintenance/>
     }
 
-  return (
-      <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-  )
+    return (
+        <div className="appShell">
+            <div className="headerWrapper">
+                <Navbar/>
+                <header>
+                    <h1>Jacob Candelaria</h1>
+                    <h2>Backend Software Engineer</h2>
+                    <hr/>
+                </header>
+            </div>
+
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/about" element={<About/>}/>
+                <Route path="/contact" element={<Contact/>}/>
+            </Routes>
+        </div>
+    )
 }
 
 export default App
