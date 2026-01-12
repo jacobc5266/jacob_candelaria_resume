@@ -2,6 +2,24 @@
     margin-top: 20px;
 }
 
+@media (max-width: 900px) {
+    .tech_stack {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .tech_stack > * {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech_stack {
+        grid-template-columns: 1fr;
+    }
+}
+
 .toggleWrapper {
     position: sticky;
     top: 217px;
