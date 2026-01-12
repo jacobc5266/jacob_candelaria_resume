@@ -7,10 +7,6 @@
 
 }
 
-.backend_card {
-
-}
-
 .languages_card {
     display: flex;
     flex-direction: column;
@@ -25,8 +21,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 10px;
-    gap: 15px;
+    gap: 25px;
     align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .icon_container {
@@ -39,4 +37,10 @@
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .language_row > * {
+        flex: 0 1 calc(50% - 15px); /* two per row */
+    }
 }
