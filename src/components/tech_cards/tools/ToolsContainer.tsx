@@ -41,7 +41,7 @@ const ALWAYS_TOOLS: Item[] = [
 const FILTERED_TOOLS: Record<StackFilter, Item[]> = {
     backend: [
         { key: "spring", label: "Spring", Icon: SpringIcon },
-        { key: "jooq", label: "JOOQ", Icon: JooqIcon},
+        { key: "jooq", label: "jOOQ", Icon: JooqIcon},
         { key: "postman", label: "Postman", Icon: PostmanIcon },
         { key: "gradle", label: "Gradle", Icon: GradleIcon },
         {key: "junit", label: "JUnit", Icon: JUnitIcon},
@@ -87,7 +87,7 @@ export function ToolsContainer({ filter }: { filter: StackFilter }) {
         <div className={classes.languages_card}>
             {/* Datastores only for backend + data */}
             {datastores && datastores.length > 0 && (
-                <div>
+                <div className={classes.languages_card}>
                     <div>
                         <h2>Datastores</h2>
                     </div>
@@ -105,7 +105,7 @@ export function ToolsContainer({ filter }: { filter: StackFilter }) {
             )}
 
             {/* Tools always */}
-            <div>
+            <div className={classes.languages_card}>
                 <div>
                     <h2>Tools</h2>
                 </div>
