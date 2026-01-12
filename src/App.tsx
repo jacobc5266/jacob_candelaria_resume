@@ -16,7 +16,14 @@ function App() {
 
   return (
       <div>
-        <Navbar />
+          <div className="headerWrapper">
+              <Navbar />
+              <header>
+                  <h1>Jacob Candelaria</h1>
+                  <h2>Backend Software Engineer</h2>
+                  <hr/>
+              </header>
+          </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

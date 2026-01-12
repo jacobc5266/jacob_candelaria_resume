@@ -1,0 +1,10 @@
+.tech_stack {
+    margin-top: 20px;
+}
+
+.toggleWrapper {
+    position: sticky;
+    top: 200px;
+    z-index: 5;
+    background: #121212;
+}

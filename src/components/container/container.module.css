@@ -1,0 +1,65 @@
+.container {
+    position: relative;
+
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+
+    border-radius: 16px;
+    border: 1px solid #03dac6;
+    box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.6),
+            0 1px 0 rgba(255, 255, 255, 0.06);
+
+    padding: 24px;
+}
+
+/* Base header (non-floating) */
+.header {
+    width: 100%;
+}
+
+/* Floating header variant */
+.headerFloating {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+
+    /* Put the header on the top border, then pull it up a bit more */
+    top: 0;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    padding: 0;
+
+    z-index: 10;
+}
+
+
+.headerChip {
+    background-color: #1f1f1f; /* match card */
+    padding: 6px 12px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Body spacing */
+.body {
+    margin-top: 8px;
+}
+
+.bodyFloating {
+    padding-top: 16px;
+}
+
+/* Optional divider */
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #383838;
+    margin: 12px 0 40px;
+}

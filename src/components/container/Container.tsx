@@ -1,0 +1,43 @@
+import classes from "./container.module.css"
+
+type ContainerVariant = "default" | "floatingHeader";
+
+interface ContainerProps {
+    header?: React.ReactNode;
+    showDivider?: boolean;
+    children: React.ReactNode;
+
+    variant?: ContainerVariant;
+
+    className?: string;
+    headerClassName?: string;
+    bodyClassName?: string;
+}
+
+export default function Container({
+                                      header,
+                                      showDivider = true,
+                                      children,
+                                      variant = "default",
+                                      className,
+                                      headerClassName,
+                                      bodyClassName,
+                                  }: ContainerProps) {
+    const isFloating = variant === "floatingHeader";
+
+    return (
+        <div className={`${classes.container} ${isFloating ? classes.floating : ""} ${className ?? ""}`}>
+            {header ? (
+                <div className={`${classes.header} ${isFloating ? classes.headerFloating : ""} ${headerClassName ?? ""}`}>
+                    {header}
+                </div>
+            ) : null}
+
+            {header && showDivider && !isFloating ? <hr className={classes.divider} /> : null}
+
+            <div className={`${classes.body} ${isFloating ? classes.bodyFloating : ""} ${bodyClassName ?? ""}`}>
+                {children}
+            </div>
+        </div>
+    );
+}

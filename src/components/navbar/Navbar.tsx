@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import classes from './navbar.module.css';
 
 export default function Navbar() {
-    const pathname = window.location.pathname;
+    const { pathname } = useLocation();
     return (
         <div className={classes.navbar}>
             <nav>

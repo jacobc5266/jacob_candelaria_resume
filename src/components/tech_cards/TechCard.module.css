@@ -1,0 +1,46 @@
+.container {
+    max-width: 200px;
+    max-height: 200px;
+    padding: 10px;
+    box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.6),
+            0 1px 0 rgba(255, 255, 255, 0.06);
+
+
+}
+
+.backend_card {
+
+}
+
+.languages_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 500px;
+    max-width: 1200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+.language_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon_container {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.subheader {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
