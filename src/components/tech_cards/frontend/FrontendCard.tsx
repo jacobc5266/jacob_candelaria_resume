@@ -27,6 +27,12 @@ const FRONTEND_LANGUAGES: Item[] = [
 export default function FrontendCard() {
     return (
         <div className={classes.languages_card}>
+            <div className={classes.stackNote}>
+                <p>
+                    While my primary focus and professional identity is backend engineering, I’m comfortable
+                    working across the frontend stack to build complete, production-ready applications.
+                </p>
+            </div>
             <div>
                 <h2>Frontend</h2>
             </div>

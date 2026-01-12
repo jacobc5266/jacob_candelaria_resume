@@ -20,6 +20,13 @@ export default function BackendCard() {
 
     return (
         <div className={classes.languages_card}>
+            <div className={classes.stackNote}>
+                <p>
+                    Backend engineering is my primary focus, where I concentrate on building reliable systems,
+                    data models, APIs, and infrastructure.
+                </p>
+            </div>
+
             <div>
                 <h2>Backend</h2>
             </div>
