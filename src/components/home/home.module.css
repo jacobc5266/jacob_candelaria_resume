@@ -1,29 +1,24 @@
+.homeLayout {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .tech_stack {
     margin-top: 20px;
-}
-
-@media (max-width: 900px) {
-    .tech_stack {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-    }
-
-    .tech_stack > * {
-        min-width: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .tech_stack {
-        grid-template-columns: 1fr;
-    }
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .toggleWrapper {
     position: sticky;
-    top: 217px;
+    top: 60px;
     margin-top: 10px;
     z-index: 5;
     background: #121212;
+}
+
+.sectionTopAnchor {
+    height: 1px;
+    scroll-margin-top: 140px; /* tweak based on navbar + toggle */
 }
