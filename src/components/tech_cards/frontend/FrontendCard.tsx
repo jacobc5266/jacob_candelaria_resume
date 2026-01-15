@@ -1,46 +1,32 @@
-import classes from "../TechCard.module.css";
-import Container from "../../container/Container.tsx";
-import {JavaScriptIcon} from "./JavaScriptIcon.tsx";
-import {ReactIcon} from "./ReactIcon.tsx";
-import * as React from "react";
-import {NextjsIcon} from "./NextjsIcon.tsx";
-import {TypeScriptIcon} from "./TypeScriptIcon.tsx";
-import {HtmlIcon} from "./HtmlIcon.tsx";
-import {CssIcon} from "./CssIcon.tsx";
+import { JavaScriptIcon } from "./JavaScriptIcon";
+import { ReactIcon } from "./ReactIcon";
+import { NextjsIcon } from "./NextjsIcon";
+import { TypeScriptIcon } from "./TypeScriptIcon";
+import { HtmlIcon } from "./HtmlIcon";
+import { CssIcon } from "./CssIcon";
+import {IconGridSection} from "../icon_grid/IconGridSection.tsx";
+import type {IconItem} from "../IconItem.ts";
 
-type Item = {
-    key: string;
-    label?: string;
-    Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-};
-
-const FRONTEND_LANGUAGES: Item[] = [
-    { key: "javascript", label: "JavaScript", Icon: JavaScriptIcon },
-    { key: "react", label: "React", Icon: ReactIcon },
-    { key: "nextjs", label: "Next.js", Icon: NextjsIcon },
-    { key: "typescript", label: "TypeScript", Icon: TypeScriptIcon},
-    { key: "html", label: "HTML", Icon: HtmlIcon},
-    { key: "css", label: "CSS", Icon: CssIcon}
-
+const FRONTEND_LANGUAGES: IconItem[] = [
+    { key: "javascript", label: "JavaScript", startYear: 2025, Icon: JavaScriptIcon },
+    { key: "react", label: "React", startYear: 2025, Icon: ReactIcon },
+    { key: "nextjs", label: "Next.js", startYear: 2025, Icon: NextjsIcon },
+    { key: "typescript", label: "TypeScript", startYear: 2025, Icon: TypeScriptIcon },
+    { key: "html", label: "HTML", startYear: 2023, Icon: HtmlIcon },
+    { key: "css", label: "CSS", startYear: 2023, Icon: CssIcon },
 ];
 
 export default function FrontendCard() {
     return (
-        <div className={classes.languages_card}>
-            <div>
-                <h2>Frontend</h2>
-            </div>
-            <Container className={classes.languages_card}>
-                <div className={classes.language_row}>
-                        {FRONTEND_LANGUAGES.map(({ key, label, Icon }) => (
-                            <Container key={key}>
-                                <Icon width={75} height={75} />
-                                {label && <p>{label}</p>}
-                            </Container>
-                        ))}
-                </div>
-
-            </Container>
-        </div>
+        <IconGridSection
+            title="Frontend"
+            note={
+                <p>
+                    While my primary focus and professional identity is backend engineering, I’m comfortable
+                    working across the frontend stack to build complete, production-ready applications.
+                </p>
+            }
+            items={FRONTEND_LANGUAGES}
+        />
     );
 }

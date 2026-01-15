@@ -1,22 +1,25 @@
-import classes from "../TechCard.module.css";
-import Container from "../../container/Container.tsx";
 import {PythonIcon} from "../backend/PythonIcon.tsx";
+import {IconGridSection} from "../icon_grid/IconGridSection.tsx";
+import type {IconItem} from "../IconItem.ts";
+
+const DATA_LANGUAGES: IconItem[] = [
+    { key: "python", isPrimary: true, startYear: 2022, Icon: PythonIcon }
+
+];
 
 export default function DataCard() {
 
     return (
-        <div className={classes.languages_card}>
-            <div>
-                <h2>Backend</h2>
-            </div>
-            <Container className={classes.languages_card}>
-                <div className={classes.language_row}>
-                    <Container className={classes.icon_container}>
-                        <PythonIcon width={75} height={75}/>
-                    </Container>
-                </div>
 
-            </Container>
-        </div>
+        <IconGridSection
+            title="Data"
+            note={
+                <p>
+                    Alongside backend engineering, I actively enjoy data work — including data modeling, pipeline
+                    design, analytics, and hands-on exploration.
+                </p>
+            }
+            items={DATA_LANGUAGES}
+        />
     );
 }

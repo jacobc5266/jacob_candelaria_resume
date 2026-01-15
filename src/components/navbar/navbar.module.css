@@ -1,16 +1,23 @@
-.navbar {
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background-color: #017C70;
     padding: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.navbar ul {
+ul {
     list-style-type: none;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;       /* centers vertically */
+    justify-content: center;
+    align-items: center;
     padding: 0;
     margin: 0;
+    flex-wrap: wrap;
 }
 
 .link {

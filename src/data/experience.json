@@ -1,0 +1,112 @@
+{
+  "Template" : {
+    "company":  "Company Name",
+    "positions": [
+      {
+        "title" : "Job Title",
+        "start": {"year": 2016, "month": 4},
+        "end": {"year":2017, "month": 7},
+        "location": "City + State, or State only, or Remote",
+        "isRemote": false,
+        "description": [
+          "Bullet Point Description",
+          "Bullet Point Description",
+          "Bullet Point Description"
+        ]
+      }
+    ]
+  },
+  "experience": [
+    {
+      "company":  "Worldpay",
+      "positions": [
+        {
+          "title" : "Customer Service Representative II/Translator",
+          "start": {"year": 2016, "month": 4},
+          "end": {"year":2017, "month": 7},
+          "location": "Durango, Colorado",
+          "isRemote": false,
+          "description": [
+            "Provided high-quality customer support by resolving product and service inquiries across Worldpay offerings.",
+            "Routed complex issues to billing and technical teams to ensure fast and accurate resolution.",
+            "Maintained accurate records and documentation while using internal systems to respond efficiently to customer needs.",
+            "Handled order inquiries, shipment tracking, and returns to ensure smooth customer transactions."
+          ]
+        },
+        {
+          "title" : "Technical Support Specialist II – Terminals/Translator",
+          "start": {"year": 2017, "month": 7},
+          "end": {"year": 2018, "month": 10},
+          "location": "Durango, Colorado",
+          "isRemote": false,
+          "description": [
+            "Diagnosed and resolved complex point-of-sale (POS) terminal issues for small to medium-sized businesses (SMBs).",
+            "Expanded Spanish support operations, improving customer response capacity.",
+            "Used analytics to resolve funding discrepancies and streamline issue resolution."
+          ]
+        },
+        {
+          "title" : "Merchant Activations Specialist",
+          "start": {"year": 2021, "month": 9},
+          "end": {"year": 2023, "month": 11},
+          "location": "Colorado",
+          "isRemote": true,
+          "description": [
+            "Automated reporting workflows using Python, improving report generation efficiency by 90%.",
+            "Built Tableau and Excel dashboards used by 36+ partner banks to streamline financial insights.",
+            "Maintained internal Python tools using Git and improved codebase maintainability."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Redi Services LLC & Mulholland Energy Services",
+      "positions": [
+        {
+          "title" : "Industrial Painter & Hydrovac Tech",
+          "start": {"year": 2018, "month": 11},
+          "end": {"year":2021, "month": 2},
+          "location": "Midland, Texas",
+          "isRemote": false,
+          "description": [
+            "Led field projects, coordinated logistics, and maintained strict safety and documentation standards."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Morehart Murphy Subaru",
+      "positions": [
+        {
+          "title" : "Lube Technician",
+          "start": {"year": 2024, "month": 9},
+          "end": {"year": null, "month": null},
+          "location": "Durango, Colorado",
+          "isRemote": false,
+          "description": [
+            "Managed high-volume workflows under strict quality control, improving throughput and accuracy.",
+            "Collaborated across departments to meet service timelines and customer expectations."
+          ]
+        }
+      ]
+    },
+    {
+      "company":  "Career Break",
+      "positions": [
+        {
+          "title" : null,
+          "start": {"year": 2023, "month": 11},
+          "end": {"year":2024, "month": 9},
+          "location": null,
+          "isRemote": false,
+          "description": [
+            "Took a planned career break to transition into software engineering and data-focused roles through formal training and self-directed projects.",
+            "Completed the IBM Data Science Professional Certificate, covering Python, SQL, data analysis, visualization, and machine learning fundamentals.",
+            "Completed an intensive Java backend engineering bootcamp focused on Spring Boot, REST APIs, databases, testing, and production-oriented development practices.",
+            "Built and iterated on multiple independent projects to apply new skills in realistic, end-to-end systems."
+          ]
+        }
+      ]
+    }
+  ]
+}
