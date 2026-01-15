@@ -9,6 +9,7 @@ import Experience from "./pages/Experience.tsx";
 import Projects from "./pages/Projects.tsx";
 
 const maintenance = import.meta.env.VITE_MAINTENANCE === "true";
+const showViewport = import.meta.env.SHOW_VIEWPORT === "true";
 
 function App() {
 
@@ -33,6 +34,13 @@ function App() {
                 <Route path="/about" element={<About/>}/>
                 <Route path="/contact" element={<Contact/>}/>
             </Routes>
+
+            {showViewport &&
+                <p style={{ position: "fixed", bottom: 8, left: 8, fontSize: 12, opacity: 0.7 }}>
+                    {window.innerWidth} x {window.innerHeight}
+                </p>
+            }
+
         </div>
     )
 }
