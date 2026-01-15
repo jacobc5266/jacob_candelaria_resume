@@ -3,25 +3,41 @@ import classes from './home.module.css';
 import BackendCard from "../tech_cards/backend/BackendCard.tsx";
 import {type StackFilter, StackToggle} from "../stack_toggle/StackToggle.tsx";
 import * as React from "react";
-import {ToolsContainer} from "../tech_cards/tools/ToolsContainer.tsx";
+import {ToolsCard} from "../tech_cards/tools/ToolsCard.tsx";
 import DataCard from "../tech_cards/data/DataCard.tsx";
 import FrontendCard from "../tech_cards/frontend/FrontendCard.tsx";
+import DatastoresCard from "../tech_cards/databases/DatastoresCard.tsx";
 
 
 export default function HomeLayout() {
     const [filter, setFilter] = React.useState<StackFilter>("backend");
+    const topAnchorRef = React.useRef<HTMLDivElement| null>(null);
+
+    React.useEffect(() => {
+        topAnchorRef.current?.scrollIntoView();
+    }, [filter]);
+
     return (
-        <div>
+        <div className={classes.homeLayout}>
             <div className={classes.toggleWrapper}>
                 <StackToggle value={filter} onChange={setFilter}/>
             </div>
+
+            {/* Remove this before deployment */}
+            <p style={{ position: "fixed", bottom: 8, left: 8, fontSize: 12, opacity: 0.7 }}>
+                {window.innerWidth} x {window.innerHeight}
+            </p>
+
+            <div ref={topAnchorRef} className={classes.sectionTopAnchor} />
+
             <section className={classes.tech_stack}>
 
                 {filter === "backend" && <BackendCard/>}
                 {filter === "frontend" && <FrontendCard/>}
                 {filter === "data" && <DataCard/>}
 
-                <ToolsContainer filter={filter} />
+                <DatastoresCard filter={filter} />
+                <ToolsCard filter={filter} />
             </section>
         </div>
     );

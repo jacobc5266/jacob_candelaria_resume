@@ -1,47 +1,27 @@
-import classes from '../TechCard.module.css';
-import Container from "../../container/Container.tsx";
 import {JavaIcon} from "./JavaIcon.tsx";
 import {PythonIcon} from "./PythonIcon.tsx";
-import * as React from "react";
+import {IconGridSection} from "../icon_grid/IconGridSection.tsx";
+import type {IconItem} from "../IconItem.ts";
 
-type Item = {
-    key: string;
-    label?: string;
-    Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-};
-
-const BACKEND_LANGUAGES: Item[] = [
-    { key: "java", Icon: JavaIcon },
-    { key: "python", Icon: PythonIcon }
+const BACKEND_LANGUAGES: IconItem[] = [
+    { key: "java", isPrimary: true, startYear: 2021, Icon: JavaIcon },
+    { key: "python", startYear: 2022, Icon: PythonIcon }
 
 ];
 
 export default function BackendCard() {
 
     return (
-        <div className={classes.languages_card}>
-            <div className={classes.stackNote}>
+        <IconGridSection
+            title="Backend"
+            note={
                 <p>
                     Backend engineering is my primary focus, where I concentrate on building reliable systems,
                     data models, APIs, and infrastructure.
                 </p>
-            </div>
-
-            <div>
-                <h2>Backend</h2>
-            </div>
-            <Container className={classes.languages_card}>
-                <div className={classes.language_row}>
-                    {BACKEND_LANGUAGES.map(({ key, label, Icon }) => (
-                        <Container key={key}>
-                            <Icon width={75} height={75} />
-                            {label && <p>{label}</p>}
-                            {key === "java" && <p className={classes.subheader}>Primary Language</p>}
-                        </Container>
-                    ))}
-                </div>
-            </Container>
-        </div>
+            }
+            items={BACKEND_LANGUAGES}
+        />
 
     );
 }
