@@ -1,11 +1,31 @@
 import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import classes from './navbar.module.css';
+import {useLayoutEffect, useRef} from "react";
 
 export default function Navbar() {
     const { pathname } = useLocation();
+    const navRef = useRef<HTMLElement | null>(null);
+
+    useLayoutEffect(() => {
+        const nav = navRef.current;
+        if (!nav) return;
+
+        const update = () => {
+            const height = nav.offsetHeight;
+            document.documentElement.style.setProperty("--nav-height", `${height}px`);
+        };
+
+        update();
+
+        const ro = new ResizeObserver(update);
+        ro.observe(nav);
+
+        return () => ro.disconnect();
+    }, []);
+
     return (
-        <nav>
+        <nav ref={navRef}>
             <ul>
                 <li><Link to="/" className={`${classes.link} ${pathname === "/" ? classes.active : ""}`}>Home</Link></li>
                 <li><Link to="/experience" className={`${classes.link} ${pathname === "/experience" ? classes.active : ""}`}>Experience</Link></li>
