@@ -12,7 +12,7 @@
 
 .toggleWrapper {
     position: sticky;
-    top: 60px;
+    top: var(--nav-height);
     margin-top: 10px;
     z-index: 5;
     background: #121212;
