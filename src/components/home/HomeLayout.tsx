@@ -29,11 +29,6 @@ export default function HomeLayout() {
                 <StackToggle value={filter} onChange={onFilterChange}/>
             </div>
 
-            {/* Remove this before deployment */}
-            <p style={{ position: "fixed", bottom: 8, left: 8, fontSize: 12, opacity: 0.7 }}>
-                {window.innerWidth} x {window.innerHeight}
-            </p>
-
             <div ref={topAnchorRef} className={classes.sectionTopAnchor} />
 
             <section className={classes.tech_stack}>
