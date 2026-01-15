@@ -13,14 +13,20 @@ export default function HomeLayout() {
     const [filter, setFilter] = React.useState<StackFilter>("backend");
     const topAnchorRef = React.useRef<HTMLDivElement| null>(null);
 
-    React.useEffect(() => {
-        topAnchorRef.current?.scrollIntoView();
-    }, [filter]);
+    const onFilterChange = (next: StackFilter) => {
+        setFilter(next);
+
+        // wait for the DOM to update, then jump
+        requestAnimationFrame(() => {
+            topAnchorRef.current?.scrollIntoView({ block: "start" });
+        });
+    };
+
 
     return (
         <div className={classes.homeLayout}>
             <div className={classes.toggleWrapper}>
-                <StackToggle value={filter} onChange={setFilter}/>
+                <StackToggle value={filter} onChange={onFilterChange}/>
             </div>
 
             {/* Remove this before deployment */}
