@@ -1,0 +1,41 @@
+.aboutBody {
+    max-width: 70ch;
+    text-align: left;
+    line-height: 1.6;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+}
+
+.aboutBody p {
+    margin: 0 0 1rem;
+}
+
+.aboutBody p:last-child {
+    margin-bottom: 0;
+}
+
+.aboutSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem;
+}
+
+.profilePicWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.profilePic {
+    width: clamp(180px, 40vw, 260px);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+    .aboutSection {
+        padding: 1rem;
+    }
+}

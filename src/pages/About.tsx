@@ -1,10 +1,7 @@
-import Maintenance from "../components/maintenance/Maintenance.tsx";
+import AboutMeLayout from "../components/about/AboutMeLayout";
 
-// TODO: Implement About page
 export default function About() {
   return (
-      <div>
-          <Maintenance />
-      </div>
+      <AboutMeLayout />
   );
 }
