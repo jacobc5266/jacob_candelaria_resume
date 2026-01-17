@@ -7,6 +7,7 @@ import Navbar from "./components/navbar/Navbar.tsx";
 import Maintenance from "./components/maintenance/Maintenance.tsx";
 import Experience from "./pages/Experience.tsx";
 import Projects from "./pages/Projects.tsx";
+import ScrollToTop from "./components/routing/ScrollToTop.ts";
 
 const maintenance = import.meta.env.VITE_MAINTENANCE === "true";
 const showViewport = import.meta.env.SHOW_VIEWPORT === "true";
@@ -26,6 +27,8 @@ function App() {
                 <h2>Backend Software Engineer</h2>
                 <hr/>
             </header>
+
+            <ScrollToTop />
 
             <Routes>
                 <Route path="/" element={<Home/>}/>
