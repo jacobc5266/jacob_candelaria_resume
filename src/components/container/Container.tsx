@@ -12,6 +12,7 @@ interface ContainerProps {
     className?: string;
     headerClassName?: string;
     bodyClassName?: string;
+    dividerClassName?: string;
 }
 
 export default function Container({
@@ -22,6 +23,7 @@ export default function Container({
                                       className,
                                       headerClassName,
                                       bodyClassName,
+                                      dividerClassName,
                                   }: ContainerProps) {
     const isFloating = variant === "floatingHeader";
 
@@ -33,7 +35,9 @@ export default function Container({
                 </div>
             ) : null}
 
-            {header && showDivider && !isFloating ? <hr className={classes.divider} /> : null}
+            {header && showDivider && !isFloating ? (
+                <hr className={`${classes.divider} ${dividerClassName ?? ""}`} />
+            ) : null}
 
             <div className={`${classes.body} ${isFloating ? classes.bodyFloating : ""} ${bodyClassName ?? ""}`}>
                 {children}

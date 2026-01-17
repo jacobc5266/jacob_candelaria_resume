@@ -1,10 +1,9 @@
-import Maintenance from "../components/maintenance/Maintenance.tsx";
+import ExperienceLayout from "../components/experience/ExperienceLayout.tsx";
 
-// TODO: Implement Experience page
 export default function Experience() {
   return (
     <div>
-        <Maintenance />
+        <ExperienceLayout />
     </div>
   );
 }
