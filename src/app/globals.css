@@ -1,19 +1,28 @@
 :root {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #E0E0E0;
-  background-color: #121212;
   --nav-height: 60px;
   color-scheme: dark;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-  min-height: 100%;
+/* Reset (don’t zero padding globally; it causes surprises) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #E0E0E0;
+  background: #121212;
+}
+
+/* Your header lives in layout.tsx, so keep its styles global */
 header {
   text-align: center;
   padding: 1rem;
@@ -24,10 +33,9 @@ header hr {
   margin-top: 1rem;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* IMPORTANT: replaces the old #root bottom spacing */
+main {
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
 }
 
 a {
