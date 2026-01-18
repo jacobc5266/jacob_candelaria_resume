@@ -1,10 +1,11 @@
+'use client';
 import classes from "./StackToggle.module.css";
 
 export type StackFilter = "backend" | "frontend" | "data";
 
 type StackToggleProps = {
     value: StackFilter;
-    onChange: (v: StackFilter) => void;
+    onChangeAction: (v: StackFilter) => void;
 };
 
 const OPTIONS: { label: string; value: StackFilter }[] = [
@@ -13,7 +14,7 @@ const OPTIONS: { label: string; value: StackFilter }[] = [
     { label: "Data", value: "data" },
 ];
 
-export function StackToggle({ value, onChange }: StackToggleProps) {
+export function StackToggle({ value, onChangeAction }: StackToggleProps) {
     return (
         <div className={classes.toggle} role="radiogroup" aria-label="Tech stack category">
             {OPTIONS.map((opt) => {
@@ -26,7 +27,7 @@ export function StackToggle({ value, onChange }: StackToggleProps) {
                         role="radio"
                         aria-checked={active}
                         className={`${classes.option} ${active ? classes.active : ""}`}
-                        onClick={() => onChange(opt.value)}
+                        onClick={() => onChangeAction(opt.value)}
                     >
                         {opt.label}
                     </button>

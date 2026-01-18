@@ -1,7 +1,7 @@
 import * as React from "react";
-import Container from "../../container/Container.tsx";
 import classes from "../TechCard.module.css";
 import type {IconItem} from "../IconItem.ts";
+import Container from "@/components/container/Container";
 
 type Props = {
     title: React.ReactNode;

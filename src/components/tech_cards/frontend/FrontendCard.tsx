@@ -4,8 +4,8 @@ import { NextjsIcon } from "./NextjsIcon";
 import { TypeScriptIcon } from "./TypeScriptIcon";
 import { HtmlIcon } from "./HtmlIcon";
 import { CssIcon } from "./CssIcon";
-import {IconGridSection} from "../icon_grid/IconGridSection.tsx";
 import type {IconItem} from "../IconItem.ts";
+import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
 
 const FRONTEND_LANGUAGES: IconItem[] = [
     { key: "javascript", label: "JavaScript", startYear: 2025, Icon: JavaScriptIcon },

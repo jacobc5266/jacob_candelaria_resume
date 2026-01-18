@@ -3,9 +3,9 @@
   color: #E0E0E0;
   background-color: #121212;
   --nav-height: 60px;
+  color-scheme: dark;
 }
 
-/* global layout sanity */
 html, body {
   margin: 0;
   padding: 0;
@@ -14,7 +14,23 @@ html, body {
   min-height: 100%;
 }
 
-/* box sizing so padding doesn’t accidentally create overflow */
-*, *::before, *::after {
+header {
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+header hr {
+  margin-top: 1rem;
+}
+
+* {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

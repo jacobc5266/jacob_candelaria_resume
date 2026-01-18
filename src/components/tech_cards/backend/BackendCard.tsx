@@ -1,7 +1,7 @@
-import {JavaIcon} from "./JavaIcon.tsx";
-import {PythonIcon} from "./PythonIcon.tsx";
-import {IconGridSection} from "../icon_grid/IconGridSection.tsx";
 import type {IconItem} from "../IconItem.ts";
+import {JavaIcon} from "@/components/tech_cards/backend/JavaIcon";
+import {PythonIcon} from "@/components/tech_cards/backend/PythonIcon";
+import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
 
 const BACKEND_LANGUAGES: IconItem[] = [
     { key: "java", isPrimary: true, startYear: 2021, Icon: JavaIcon },
