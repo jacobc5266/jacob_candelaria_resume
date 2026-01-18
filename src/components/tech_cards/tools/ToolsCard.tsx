@@ -1,25 +1,22 @@
 import type { StackFilter } from "../../stack_toggle/StackToggle.tsx";
-
-import { GitIcon } from "./GitIcon.tsx";
-import { GitHubIcon } from "./GitHubIcon.tsx";
-import { DockerIcon } from "./DockerIcon.tsx";
-import { PostmanIcon } from "./PostmanIcon.tsx";
-import { GradleIcon } from "./GradleIcon.tsx";
-
-import { PlotlyIcon } from "../data/PlotlyIcon.tsx";
-import { MatplotlibIcon } from "../data/MatplotlibIcon.tsx";
-import { PandasIcon } from "../data/PandasIcon.tsx";
-import { JupyterIcon } from "../data/JupyterIcon.tsx";
-import { ScikitLearnIcon } from "../data/ScikitLearnIcon.tsx";
-
-import {OpenApiIcon} from "./OpenApiIcon.tsx";
-import {SwaggerIcon} from "./SwaggerIcon.tsx";
-import {SpringIcon} from "./SpringIcon.tsx";
-import {PytestIcon} from "./PytestIcon.tsx";
-import {JUnitIcon} from "./JUnitIcon.tsx";
-import {JooqIcon} from "./JooqIcon.tsx";
 import type {IconItem} from "../IconItem.ts";
-import {IconGridSection} from "../icon_grid/IconGridSection.tsx";
+import {GitIcon} from "@/components/tech_cards/tools/GitIcon";
+import {GitHubIcon} from "@/components/tech_cards/tools/GitHubIcon";
+import {DockerIcon} from "@/components/tech_cards/tools/DockerIcon";
+import {SpringIcon} from "@/components/tech_cards/tools/SpringIcon";
+import {JooqIcon} from "@/components/tech_cards/tools/JooqIcon";
+import {PostmanIcon} from "@/components/tech_cards/tools/PostmanIcon";
+import {GradleIcon} from "@/components/tech_cards/tools/GradleIcon";
+import {JUnitIcon} from "@/components/tech_cards/tools/JUnitIcon";
+import {PytestIcon} from "@/components/tech_cards/tools/PytestIcon";
+import {OpenApiIcon} from "@/components/tech_cards/tools/OpenApiIcon";
+import {SwaggerIcon} from "@/components/tech_cards/tools/SwaggerIcon";
+import {JupyterIcon} from "@/components/tech_cards/data/JupyterIcon";
+import {PlotlyIcon} from "@/components/tech_cards/data/PlotlyIcon";
+import {MatplotlibIcon} from "@/components/tech_cards/data/MatplotlibIcon";
+import {PandasIcon} from "@/components/tech_cards/data/PandasIcon";
+import {ScikitLearnIcon} from "@/components/tech_cards/data/ScikitLearnIcon";
+import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
 
 
 

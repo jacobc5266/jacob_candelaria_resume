@@ -1,9 +1,10 @@
 import type {StackFilter} from "../../stack_toggle/StackToggle.tsx";
-import {PostgresIcon} from "./PostgresIcon.tsx";
-import {DynamoDBIcon} from "./DynamoDBIcon.tsx";
-import {OracleIcon} from "./OracleIcon.tsx";
 import type {IconItem} from "../IconItem.ts";
-import {IconGridSection} from "../icon_grid/IconGridSection.tsx";
+import {PostgresIcon} from "@/components/tech_cards/databases/PostgresIcon";
+import {DynamoDBIcon} from "@/components/tech_cards/databases/DynamoDBIcon";
+import {OracleIcon} from "@/components/tech_cards/databases/OracleIcon";
+import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
+
 
 const FILTERED_DATASTORES: Partial<Record<StackFilter, IconItem[]>> = {
     backend: [

@@ -23,13 +23,15 @@
 }
 
 .profilePicWrapper {
+    position: relative; /* REQUIRED for fill */
     display: flex;
     justify-content: center;
+
+    width: clamp(180px, 40vw, 260px);
+    aspect-ratio: 3 / 4;
 }
 
 .profilePic {
-    width: clamp(180px, 40vw, 260px);
-    aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 16px;
 }

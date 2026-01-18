@@ -1,6 +1,6 @@
 import experienceJson from "../../data/experience.json";
-import Container from "../container/Container.tsx";
 import classes from "./experience.module.css";
+import Container from "@/components/container/Container";
 
 type YearMonth = { year: number | null; month: number | null };
 
