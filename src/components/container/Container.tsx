@@ -1,11 +1,12 @@
 import classes from "./container.module.css"
+import {ReactNode} from "react";
 
 type ContainerVariant = "default" | "floatingHeader";
 
 interface ContainerProps {
-    header?: React.ReactNode;
+    header?: ReactNode;
     showDivider?: boolean;
-    children: React.ReactNode;
+    children: ReactNode;
 
     variant?: ContainerVariant;
 

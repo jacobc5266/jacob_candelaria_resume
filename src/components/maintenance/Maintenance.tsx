@@ -11,7 +11,7 @@ export default function Maintenance() {
             padding: "10px"
         }}>
             <h1>🚧 Under Construction</h1>
-            <p>I'm currently working on this site. Please check back soon.</p>
+            <p>I&#39;m currently working on this site. Please check back soon.</p>
         </div>
     );
 }

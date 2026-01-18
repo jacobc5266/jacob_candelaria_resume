@@ -14,8 +14,8 @@ export function DynamoDBIcon(props: DynamoDBIconProps) {
                 <defs>
                     <linearGradient id="prefix__a" x1="-15.53" y1="90.53" x2="90.53" y2="-15.53"
                                     gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.70667 0 0 1.70667 0 0)">
-                        <stop offset="0" stop-color="#2e27ad"></stop>
-                        <stop offset="1" stop-color="#527fff"></stop>
+                        <stop offset="0" stopColor="#2e27ad"></stop>
+                        <stop offset="1" stopColor="#527fff"></stop>
                     </linearGradient>
                 </defs>
                 <path data-name="Blue Gradient" className="prefix__cls-1" fill="url(#prefix__a)"

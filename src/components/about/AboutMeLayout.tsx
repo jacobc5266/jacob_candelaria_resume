@@ -1,7 +1,8 @@
-import Container from "../container/Container.tsx";
 import aboutMe from "../../data/about_me.json";
 import classes from "./AboutMe.module.css";
-import profilePic from "../../assets/mountain-selfie.jpg";
+import Image from 'next/image';
+import profilePic from "../../../public/images/mountain-selfie.jpg";
+import Container from "@/components/container/Container";
 
 
 export default function AboutMeLayout() {
@@ -9,11 +10,13 @@ export default function AboutMeLayout() {
     return (
         <section className={classes.aboutSection}>
             <div className={classes.profilePicWrapper}>
-                <img
+                <Image
                     src={profilePic}
                     alt="Photo of Jacob Candelaria in the mountains in Colorado."
+                    fill
                     className={classes.profilePic}
                 />
+
             </div>
 
             <h2>About Me</h2>
