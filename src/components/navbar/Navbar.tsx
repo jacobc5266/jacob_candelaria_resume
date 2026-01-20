@@ -26,14 +26,16 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav ref={navRef} className={classes.nav}>
-            <ul>
-                <li><Link href="/" className={`${classes.link} ${pathname === "/" ? classes.active : ""}`}>Home</Link></li>
-                <li><Link href="/experience" className={`${classes.link} ${pathname === "/experience" ? classes.active : ""}`}>Experience</Link></li>
-                <li><Link href="/projects" className={`${classes.link} ${pathname === "/projects" ? classes.active : ""}`}>Projects</Link></li>
-                <li><Link href="/about" className={`${classes.link} ${pathname === "/about" ? classes.active : ""}`}>About</Link></li>
-                <li><Link href="/contact" className={`${classes.link} ${pathname === "/contact" ? classes.active : ""}`}>Contact</Link></li>
-            </ul>
-        </nav>
+        <header className={classes.nav_header}>
+            <nav ref={navRef} className={classes.nav}>
+                <ul>
+                    <li><Link href="/" className={`${classes.link} ${pathname === "/" ? classes.active : ""}`}>Home</Link></li>
+                    <li><Link href="/experience" className={`${classes.link} ${pathname === "/experience" ? classes.active : ""}`}>Experience</Link></li>
+                    <li><Link href="/projects" className={`${classes.link} ${pathname === "/projects" ? classes.active : ""}`}>Projects</Link></li>
+                    <li><Link href="/about" className={`${classes.link} ${pathname === "/about" ? classes.active : ""}`}>About</Link></li>
+                    <li><Link href="/contact" className={`${classes.link} ${pathname === "/contact" ? classes.active : ""}`}>Contact</Link></li>
+                </ul>
+            </nav>
+        </header>
     );
 }
