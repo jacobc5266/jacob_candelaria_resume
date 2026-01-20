@@ -34,6 +34,10 @@ header {
   line-height: 1.5;
 }
 
+main {
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
+}
+
 header hr {
   margin-top: 1rem;
 }
