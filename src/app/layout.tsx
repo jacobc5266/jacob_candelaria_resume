@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import React from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
     title: "Jacob Candelaria Dev Portfolio",
@@ -26,6 +27,7 @@ export default function RootLayout({
 
                 <main>
                     {children}
+                    <SpeedInsights />
                 </main>
             </body>
         </html>
