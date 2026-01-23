@@ -73,7 +73,7 @@ export default function ContactLayout() {
                 senderIdentity: String(formData.get("senderIdentity") ?? "") as ContactFormPayload["senderIdentity"],
                 subject: String(formData.get("subject") ?? "").trim(),
                 message: String(formData.get("message") ?? "").trim(),
-                address: String(formData.get("address") ?? "").trim() || undefined,
+                preferredContactTime: String(formData.get("preferredContactTime") ?? "").trim() || undefined,
             },
         };
 
@@ -137,8 +137,15 @@ export default function ContactLayout() {
                         </div>
                     </div>
                     <div className={`${classes.contact_element} ${classes.hp}`} aria-hidden="true">
-                        <label htmlFor="address">Address</label>
-                        <input type="text" name="address" id="address" tabIndex={-1} autoComplete="off" placeholder="Enter your address here..." />
+                        <label htmlFor="preferredContactTime">Preferred Contact Time</label>
+                        <input
+                            type="text"
+                            name="preferredContactTime"
+                            id="preferredContactTime"
+                            tabIndex={-1}
+                            autoComplete="off"
+                            placeholder="Enter your preferred contact time..."
+                        />
                     </div>
                     {getInquiryTypeDropdown()}
                     <div className={classes.contact_element}>

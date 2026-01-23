@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     const { payload, token } = body;
 
     // Honeypot: if filled, silently accept
-    if (payload?.address?.trim()) {
+    if (payload?.preferredContactTime?.trim()) {
         return NextResponse.json({ ok: true });
     }
 
@@ -66,7 +66,7 @@ export async function POST(req: Request) {
         message: payload.message.trim(),
         phone: payload.phone?.trim() || undefined,
         company: payload.company?.trim() || undefined,
-        address: undefined, // don't propagate honeypot anywhere
+        preferredContactTime: undefined, // don't propagate honeypot anywhere
     };
 
     if (!normalized.name || !normalized.email || !normalized.subject || !normalized.message) {

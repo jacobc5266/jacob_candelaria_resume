@@ -13,7 +13,7 @@ export interface ContactFormPayload {
     phone?: string;
     company?: string;
     senderIdentity: InquiryType;
-    address?: string; // honeypot
+    preferredContactTime?: string; // honeypot
 }
 
 export type ContactRequestBody = {
