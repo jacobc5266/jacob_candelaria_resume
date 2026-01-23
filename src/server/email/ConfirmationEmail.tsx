@@ -18,6 +18,8 @@ export async function sendConfirmationEmail(payload: ContactFormPayload) {
         react: <ConfirmationEmailTemplate payload={payload} />,
     });
 
+    console.log("Resend sendConfirmationEmail response:", { data, error });
+
     if (error) {
         throw new Error(`Resend error: ${error.message}`);
     }

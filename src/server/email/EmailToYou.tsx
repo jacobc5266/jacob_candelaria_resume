@@ -19,6 +19,8 @@ export async function sendEmailToYou(payload: ContactFormPayload) {
         react: <EmailToYouTemplate payload={payload} />,
     });
 
+    console.log("Resend sendEmailToYou response:", { data, error });
+
     if (error) {
         throw new Error(`Resend error: ${error.message}`);
     }

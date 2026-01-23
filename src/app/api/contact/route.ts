@@ -77,19 +77,31 @@ export async function POST(req: Request) {
         return NextResponse.json({ message: "Invalid email." }, { status: 400 });
     }
 
+    let primaryMessageId: string | undefined;
     try {
-        await sendEmailToYou(normalized);
+        const primaryData = await sendEmailToYou(normalized);
+        primaryMessageId = primaryData?.id;
     } catch (e) {
         console.error("Primary email send failure:", e);
         return NextResponse.json({ message: "Failed to send email." }, { status: 500 });
     }
 
+    let confirmationMessageId: string | undefined;
     try {
-        await sendConfirmationEmail(normalized);
+        const confirmationData = await sendConfirmationEmail(normalized);
+        confirmationMessageId = confirmationData?.id;
     } catch (e) {
         console.error("Confirmation email send failure:", e);
-        return NextResponse.json({ ok: true, warning: "Confirmation email failed." });
+        return NextResponse.json({
+            ok: true,
+            warning: "Confirmation email failed.",
+            messageId: primaryMessageId,
+        });
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({
+        ok: true,
+        messageId: primaryMessageId,
+        confirmationId: confirmationMessageId,
+    });
 }
