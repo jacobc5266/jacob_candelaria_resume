@@ -1,8 +1,8 @@
-import Maintenance from "@/components/maintenance/Maintenance";
+import ContactLayout from "@/components/contact/ContactLayout";
 
 
 export default function ContactPage() {
     return (
-        <Maintenance/>
+        <ContactLayout/>
     );
 }

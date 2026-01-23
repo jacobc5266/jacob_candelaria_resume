@@ -1,6 +1,6 @@
 import ExperienceLayout from "@/components/experience/ExperienceLayout";
 
-export default function About() {
+export default function ExperiencePage() {
     return (
         <ExperienceLayout />
     );
