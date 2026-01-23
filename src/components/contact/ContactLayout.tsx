@@ -19,6 +19,7 @@ export default function ContactLayout() {
     const [turnstileStatus, setTurnstileStatus] = useState<TurnstileStatus>("required");
     const [turnstileToken, setTurnstileToken] = useState<string>("");
     const [error, setError] = useState<string | null>(null);
+    const [statusMessage, setStatusMessage] = useState<{ type: "success" | "warning"; text: string } | null>(null);
     const [isSending, setIsSending] = useState(false);
 
 
@@ -48,6 +49,7 @@ export default function ContactLayout() {
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError(null);
+        setStatusMessage(null);
 
         if (!formRef.current) return;
         if (isSending) return;
@@ -83,8 +85,9 @@ export default function ContactLayout() {
                 body: JSON.stringify(body),
             });
 
+            const data = await res.json().catch(() => null);
+
             if (!res.ok) {
-                const data = await res.json().catch(() => null);
                 setError(data?.message ?? "Failed to send. Please try again.");
                 return;
             }
@@ -93,6 +96,12 @@ export default function ContactLayout() {
             formRef.current.reset();
             setTurnstileStatus("required");
             setTurnstileToken("");
+            setStatusMessage({
+                type: data?.warning ? "warning" : "success",
+                text: data?.warning
+                    ? "Message sent, but the confirmation email failed."
+                    : "Message sent successfully. Thank you!",
+            });
         } catch {
             setError("Network error. Please try again.");
         } finally {
@@ -166,7 +175,17 @@ export default function ContactLayout() {
                         }}
                     />
 
-                    {error && <p role="alert">{error}</p>}
+                    {error && <p role="alert" className={`${classes.status_message} ${classes.status_error}`}>{error}</p>}
+                    {statusMessage && (
+                        <p
+                            role="status"
+                            className={`${classes.status_message} ${
+                                statusMessage.type === "success" ? classes.status_success : classes.status_warning
+                            }`}
+                        >
+                            {statusMessage.text}
+                        </p>
+                    )}
                     <div className={classes.form_buttons}>
                         <button className={classes.send_button} type="submit" disabled={isSending}>
                             {isSending ? "Sending..." : "Send"}

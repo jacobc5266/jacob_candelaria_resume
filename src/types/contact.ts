@@ -18,5 +18,5 @@ export interface ContactFormPayload {
 
 export type ContactRequestBody = {
     payload: ContactFormPayload;
-    token: string;
+    token: unknown;
 };

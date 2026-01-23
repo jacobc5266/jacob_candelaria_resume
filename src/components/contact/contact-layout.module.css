@@ -110,6 +110,22 @@
     margin-top: 1rem;
 }
 
+.status_message {
+    font-weight: 600;
+}
+
+.status_success {
+    color: #017c70;
+}
+
+.status_warning {
+    color: #b06d00;
+}
+
+.status_error {
+    color: #e53935;
+}
+
 .hp {
     position: absolute;
     left: -9999px;
