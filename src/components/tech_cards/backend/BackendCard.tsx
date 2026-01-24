@@ -4,8 +4,8 @@ import {PythonIcon} from "@/components/tech_cards/backend/PythonIcon";
 import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
 
 const BACKEND_LANGUAGES: IconItem[] = [
-    { key: "java", isPrimary: true, startYear: 2021, Icon: JavaIcon },
-    { key: "python", startYear: 2022, Icon: PythonIcon }
+    { key: "java", label: "Java", isPrimary: true, startYear: 2021, Icon: JavaIcon },
+    { key: "python", label: "Python", startYear: 2022, Icon: PythonIcon }
 
 ];
 

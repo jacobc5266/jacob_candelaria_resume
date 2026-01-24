@@ -3,7 +3,7 @@ import {PythonIcon} from "@/components/tech_cards/backend/PythonIcon";
 import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
 
 const DATA_LANGUAGES: IconItem[] = [
-    { key: "python", isPrimary: true, startYear: 2022, Icon: PythonIcon }
+    { key: "python", label: "Python", isPrimary: true, startYear: 2022, Icon: PythonIcon }
 
 ];
 
