@@ -1,3 +1,12 @@
+/* Base Syles */
+.aboutSection,
+.profilePicWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .aboutBody {
     max-width: 70ch;
     text-align: left;
@@ -15,17 +24,12 @@
 }
 
 .aboutSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 0.75rem;
-    padding: 2rem;
+    padding: 1.25rem;
 }
 
 .profilePicWrapper {
-    position: relative; /* REQUIRED for fill */
-    display: flex;
-    justify-content: center;
+    position: relative;
 
     width: clamp(180px, 40vw, 260px);
     aspect-ratio: 3 / 4;
@@ -36,8 +40,8 @@
     border-radius: 16px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 600px) {
     .aboutSection {
-        padding: 1rem;
+        padding: 2rem;
     }
 }

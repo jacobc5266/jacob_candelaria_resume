@@ -1,0 +1,158 @@
+/* Base Styles */
+.contact_section,
+.contact_form,
+.contact_row,
+.contact_element,
+.form_buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact_section {
+    align-items: center;
+    padding: 1rem;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.contact_form {
+    width: clamp( 15rem, 80vw, 40rem);
+}
+
+.contact_form,
+.contact_element {
+    gap: 1.25rem;
+}
+
+.contact_form label,
+.contact_element label {
+    font-weight: 800;
+}
+
+.contact_row {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact_element {
+    width: 100%;
+    min-width: 0;
+}
+
+.turnstile_wrapper {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem;
+    margin: 0 auto;
+}
+
+.required {
+    color: #e53935;
+    margin-left: 0.25rem;
+}
+
+.contact_form input,
+.contact_form textarea,
+.inquiry_type_dropdown {
+    width: 100%;
+    border: 2px solid #017c70;
+    border-radius: 5px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.inquiry_type_dropdown {
+    cursor: pointer;
+    max-width: 28rem;
+    color: inherit;
+}
+
+.dropdown_footnote {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: -0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact_form textarea {
+    min-height: 10rem;
+    overflow-y: hidden;
+    resize: none;
+}
+
+.form_buttons {
+    padding: 0.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.form_buttons button {
+    border-radius: 5px;
+    padding: 0.5rem 1.25rem;
+    text-align: center;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.send_button {
+    background: #017c70;
+    border: 2px solid #017c70;
+    color: #fff;
+}
+
+.send_button:hover {
+    background-color: #02C1AE;
+}
+
+.contact_form input:focus-visible,
+.contact_form textarea:focus-visible,
+.form_buttons button:focus-visible,
+.inquiry_type_dropdown:focus-visible {
+    outline: 2px solid #02C1AE;
+    outline-offset: 2px;
+}
+
+.required_footnote {
+    margin-top: 1rem;
+}
+
+.status_message {
+    font-weight: 600;
+}
+
+.status_success {
+    color: #017c70;
+}
+
+.status_warning {
+    color: #b06d00;
+}
+
+.status_error {
+    color: #e53935;
+}
+
+.hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 359px) {
+    .turnstile_wrapper {
+        transform: scale(0.9);
+        transform-origin: left top;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .contact_row {
+        flex-direction: row;
+    }
+    .contact_section {
+        padding: 2rem;
+    }
+}
