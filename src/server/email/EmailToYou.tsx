@@ -1,5 +1,6 @@
 import type { ContactFormPayload } from "@/types/contact";
 import { Resend } from "resend";
+import renderMessage from "@/server/email/RenderMessage";
 
 export async function sendEmailToYou(payload: ContactFormPayload) {
     const apiKey = process.env.RESEND_API_KEY;
@@ -14,7 +15,7 @@ export async function sendEmailToYou(payload: ContactFormPayload) {
     const { data, error } = await resend.emails.send({
         from: "Dev Portfolio Inquiry <inquiry@mail.jcandelaria.dev>",
         to: [myEmail],
-        subject: `[${payload.senderIdentity}] ${payload.subject}`,
+        subject: `[${payload.senderIdentity.replace("_", " ")}] ${payload.subject}`,
         replyTo: payload.email,
         react: <EmailToYouTemplate payload={payload} />,
     });
@@ -37,7 +38,7 @@ function EmailToYouTemplate({ payload }: { payload: ContactFormPayload }) {
             <div><strong>Phone:</strong> {payload.phone?.trim() ?? ""}</div>
             <hr />
             <div><strong>Message:</strong></div>
-            <div style={{ whiteSpace: "pre-wrap" }}>{payload.message.trim()}</div>
+            {renderMessage(payload.message)}
         </div>
     );
 }

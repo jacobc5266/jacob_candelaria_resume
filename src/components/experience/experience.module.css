@@ -1,14 +1,18 @@
-.experienceSection {
+/* Base Styles */
+.experienceSection,
+.roleContainer {
     display: flex;
     flex-direction: column;
+}
+
+.experienceSection {
     align-items: center;
     gap: 1.25rem;
-    padding: 2rem;
+    padding: 1.25rem;
 }
 
 .roleContainer {
     width: 100%;
-    display: flex;
     justify-content: flex-start;
 }
 
@@ -58,8 +62,8 @@
 }
 
 
-@media (max-width: 768px) {
+@media (min-width: 600px) {
     .experienceSection {
-        padding: 1rem;
+        padding: 2rem;
     }
 }

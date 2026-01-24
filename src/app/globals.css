@@ -1,4 +1,5 @@
 :root {
+  /* Updated at runtime by Navbar via ResizeObserver */
   --nav-height: 60px;
   color-scheme: dark;
 }

@@ -15,6 +15,7 @@ export default function ContactLayout() {
     };
 
     const formRef = useRef<HTMLFormElement>(null);
+    const messageRef = useRef<HTMLTextAreaElement>(null);
 
     const [turnstileStatus, setTurnstileStatus] = useState<TurnstileStatus>("required");
     const [turnstileToken, setTurnstileToken] = useState<string>("");
@@ -94,6 +95,9 @@ export default function ContactLayout() {
 
             // reset form + require re-verify (simple approach)
             formRef.current.reset();
+            if (messageRef.current) {
+                messageRef.current.style.height = "";
+            }
             setTurnstileStatus("required");
             setTurnstileToken("");
             setStatusMessage({
@@ -154,33 +158,42 @@ export default function ContactLayout() {
                     </div>
                     <div className={classes.contact_element}>
                         <label htmlFor="message">Message <span className={classes.required} aria-hidden="true">*</span></label>
-                        <textarea onInput={autoGrow} name="message" id="message" required placeholder="Enter your message here..."/>
+                        <textarea
+                            ref={messageRef}
+                            onInput={autoGrow}
+                            name="message"
+                            id="message"
+                            required
+                            placeholder="Enter your message here..."
+                        />
                     </div>
-                    <Turnstile
-                        siteKey={process.env.NEXT_PUBLIC_CF_SITE_KEY!}
-                        retry="auto"
-                        refreshExpired="auto"
-                        sandbox={process.env.NODE_ENV === "development"}
-                        onLoad={() => {
-                            setTurnstileStatus("required");
-                            setError(null);
-                        }}
-                        onVerify={(token) => {
-                            setTurnstileStatus("success");
-                            setTurnstileToken(token);
-                            setError(null);
-                        }}
-                        onExpire={() => {
-                            setTurnstileStatus("expired");
-                            setTurnstileToken("");
-                            setError("Security check expired. Please verify again.");
-                        }}
-                        onError={() => {
-                            setTurnstileStatus("error");
-                            setTurnstileToken("");
-                            setError("Security check failed. Please try again.");
-                        }}
-                    />
+                    <div className={classes.turnstile_wrapper}>
+                        <Turnstile
+                            siteKey={process.env.NEXT_PUBLIC_CF_SITE_KEY!}
+                            retry="auto"
+                            refreshExpired="auto"
+                            sandbox={process.env.NODE_ENV === "development"}
+                            onLoad={() => {
+                                setTurnstileStatus("required");
+                                setError(null);
+                            }}
+                            onVerify={(token) => {
+                                setTurnstileStatus("success");
+                                setTurnstileToken(token);
+                                setError(null);
+                            }}
+                            onExpire={() => {
+                                setTurnstileStatus("expired");
+                                setTurnstileToken("");
+                                setError("Security check expired. Please verify again.");
+                            }}
+                            onError={() => {
+                                setTurnstileStatus("error");
+                                setTurnstileToken("");
+                                setError("Security check failed. Please try again.");
+                            }}
+                        />
+                    </div>
 
                     {error && <p role="alert" className={`${classes.status_message} ${classes.status_error}`}>{error}</p>}
                     {statusMessage && (

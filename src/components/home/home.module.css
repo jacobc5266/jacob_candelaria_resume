@@ -1,4 +1,7 @@
-.homeLayout {
+/* Base Styles */
+.homeLayout,
+.tech_stack,
+.toggleWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,9 +10,6 @@
 .tech_stack {
     padding-inline: clamp(0.75rem, 3vw, 1.25rem);
     margin-top: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     width: 100%;
     gap: 1rem;
@@ -24,7 +24,6 @@
     background: #121212;
     padding-block: 0.25rem;
 
-    display: flex;
     justify-content: center;
 }
 

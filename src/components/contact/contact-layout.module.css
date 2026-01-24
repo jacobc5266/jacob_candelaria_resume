@@ -10,7 +10,7 @@
 
 .contact_section {
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
     gap: 1.25rem;
     width: 100%;
 }
@@ -30,13 +30,20 @@
 }
 
 .contact_row {
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.5rem;
 }
 
 .contact_element {
     width: 100%;
     min-width: 0;
+}
+
+.turnstile_wrapper {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem;
+    margin: 0 auto;
 }
 
 .required {
@@ -134,8 +141,18 @@
     overflow: hidden;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 359px) {
+    .turnstile_wrapper {
+        transform: scale(0.9);
+        transform-origin: left top;
+    }
+}
+
+@media only screen and (min-width: 600px) {
     .contact_row {
-        flex-direction: column;
+        flex-direction: row;
+    }
+    .contact_section {
+        padding: 2rem;
     }
 }

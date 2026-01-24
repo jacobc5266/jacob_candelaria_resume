@@ -1,5 +1,6 @@
 import {ContactFormPayload} from "@/types/contact";
 import {Resend} from "resend";
+import renderMessage from "@/server/email/RenderMessage";
 
 
 export async function sendConfirmationEmail(payload: ContactFormPayload) {
@@ -45,7 +46,7 @@ function ConfirmationEmailTemplate({ payload }: { payload: ContactFormPayload })
 
             <div><strong>Subject:</strong> {payload.subject}</div>
             <div><strong>Message:</strong></div>
-            <div style={{ whiteSpace: "pre-wrap" }}>{payload.message.trim()}</div>
+            {renderMessage(payload.message)}
 
         </div>
     );
