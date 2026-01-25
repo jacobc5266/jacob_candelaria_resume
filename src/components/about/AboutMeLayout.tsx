@@ -1,12 +1,16 @@
-import aboutMe from "../../data/about_me.json";
 import classes from "./AboutMe.module.css";
 import Image from 'next/image';
 import profilePic from "../../../public/images/mountain-selfie.jpg";
 import Container from "@/components/container/Container";
+import ReactMarkdown from "react-markdown";
+import remarkBreaks from "remark-breaks";
 
 
-export default function AboutMeLayout() {
+type AboutMeLayoutProps = {
+    aboutMe: string;
+};
 
+export default function AboutMeLayout({ aboutMe }: AboutMeLayoutProps) {
     return (
         <section className={classes.aboutSection}>
             <div className={classes.profilePicWrapper}>
@@ -25,11 +29,9 @@ export default function AboutMeLayout() {
                 showDivider={false}
             >
                 <div className={classes.aboutBody}>
-                    {aboutMe.AboutMe.trim()
-                        .split(/\n\s*\n/)         // split on blank lines (real paragraphs)
-                        .map((paragraph, i) => (
-                            <p key={i}>{paragraph.trim()}</p>
-                        ))}
+                    <ReactMarkdown remarkPlugins={[remarkBreaks]}>
+                        {aboutMe.trim()}
+                    </ReactMarkdown>
                 </div>
             </Container>
         </section>

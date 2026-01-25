@@ -1,29 +1,8 @@
-import experienceJson from "../../data/experience.json";
 import classes from "./experience.module.css";
 import Container from "@/components/container/Container";
+import type { ExperienceDoc } from "@/lib/blobSchemas";
 
-type YearMonth = { year: number | null; month: number | null };
-
-type Position = {
-    title: string | null;
-    start: YearMonth;
-    end: YearMonth;
-    location: string | null;
-    isRemote: boolean;
-    description: string[];
-};
-
-type CompanyExperience = {
-    company: string;
-    positions: Position[];
-};
-
-type ExperienceFile = {
-    Template?: unknown;
-    experience: CompanyExperience[];
-};
-
-type ExperienceItem = Position & {
+type ExperienceItem = ExperienceDoc["experience"][number]["positions"][number] & {
     company: string;
 };
 
@@ -32,15 +11,17 @@ type ExperienceGroup = {
     roles: ExperienceItem[];
 };
 
-function toSortKey(d: YearMonth): number {
+function toSortKey(value: string | null): number {
     // Newest first; treat null as "Present" (push to top)
-    if (d.year == null || d.month == null) return Number.POSITIVE_INFINITY;
-    return d.year * 12 + (d.month - 1);
+    if (!value) return Number.POSITIVE_INFINITY;
+    const [year, month] = value.split("-").map(Number);
+    return year * 12 + (month - 1);
 }
 
-function formatYearMonth(d: YearMonth): string {
-    if (d.year == null || d.month == null) return "Present";
-    const date = new Date(d.year, d.month - 1, 1);
+function formatYearMonth(value: string | null): string {
+    if (!value) return "Present";
+    const [year, month] = value.split("-").map(Number);
+    const date = new Date(year, month - 1, 1);
     return date.toLocaleString(undefined, { month: "short", year: "numeric" });
 }
 
@@ -60,12 +41,14 @@ function groupConsecutiveByCompany(sortedItems: ExperienceItem[]): ExperienceGro
     return groups;
 }
 
-export default function ExperienceLayout() {
-    const data = experienceJson as ExperienceFile;
+type ExperienceLayoutProps = {
+    data: ExperienceDoc;
+};
 
+export default function ExperienceLayout({ data }: ExperienceLayoutProps) {
     const items: ExperienceItem[] = data.experience
         .flatMap((c) => c.positions.map((p) => ({ ...p, company: c.company })))
-        .sort((a, b) => toSortKey(b.start) - toSortKey(a.start));
+        .sort((a, b) => toSortKey(b.startDate) - toSortKey(a.startDate));
 
     const groups = groupConsecutiveByCompany(items);
 
@@ -81,7 +64,7 @@ export default function ExperienceLayout() {
                                 <h4 className={classes.roleTitle}>{role.title ?? "Career Break"}</h4>
 
                                 <div className={classes.roleMeta}>
-                                    {formatYearMonth(role.start)} – {formatYearMonth(role.end)}
+                                    {formatYearMonth(role.startDate)} – {formatYearMonth(role.endDate)}
                                     <br />
                                     {role.location ? role.location : ""}
                                     {role.isRemote ? (role.location ? " • Remote" : "Remote") : ""}
