@@ -1,9 +1,9 @@
 import classes from "@/components/projects/projects.module.css";
 import ReactMarkdown from "react-markdown";
 import remarkBreaks from "remark-breaks";
-import Link from "next/dist/client/link";
 import {ProjectSchema} from "@/lib/blobSchemas";
 import {z} from "zod";
+import {useEffect, useRef} from "react";
 
 export type Project = z.infer<typeof ProjectSchema>;
 
@@ -14,13 +14,73 @@ export type ProjectCardProps = {
     onToggle: () => void;
 };
 
+function getNormalizedDate(date: string | null): string | null {
+    if (date === null) return null;
+    const [year, month] = date.split("-");
+    let normalizedMonth : string;
+    switch (parseInt(month)) {
+        case 1:
+            normalizedMonth = "Jan"
+            break;
+        case 2:
+            normalizedMonth = "Feb"
+            break;
+        case 3:
+            normalizedMonth = "Mar"
+            break;
+        case 4:
+            normalizedMonth = "Apr"
+            break;
+        case 5:
+            normalizedMonth = "May"
+            break;
+        case 6:
+            normalizedMonth = "Jun"
+            break;
+        case 7:
+            normalizedMonth = "Jul"
+            break;
+        case 8:
+            normalizedMonth = "Aug"
+            break;
+        case 9:
+            normalizedMonth = "Sep"
+            break;
+        case 10:
+            normalizedMonth = "Oct"
+            break;
+        case 11:
+            normalizedMonth = "Nov"
+            break;
+        case 12:
+            normalizedMonth = "Dec"
+            break;
+        default:
+            normalizedMonth = ""
+            break;
+    }
+
+    return `${normalizedMonth} ${year}`;
+}
+
 export default function ProjectCard({project, isOpen, onToggle}: ProjectCardProps) {
+    const cardRef = useRef<HTMLElement | null>(null);
+
+    useEffect(() => {
+        if (isOpen && cardRef.current) {
+            cardRef.current.scrollIntoView({
+                behavior: "auto",
+                block: "start",
+            });
+        }
+    }, [isOpen]);
+
     return (
-        <article>
+        <article className={classes.projectArticle} ref={cardRef}>
             <div className={isOpen ? classes.expandedProjectCard : classes.collapsedProjectCard}>
                 <header className={classes.projectHeader} onClick={onToggle}>
                     <h2>{project.title.trim()}</h2>
-                    <h4>{`${project.startDate} – ${project.endDate ?? 'Present'}`}</h4>
+                    <h4>{`${getNormalizedDate(project.startDate)} – ${getNormalizedDate(project.endDate) ?? 'Present'}`}</h4>
                     {project.company && <h5>{project.company}</h5>}
                     <hr/>
                 </header>
@@ -40,18 +100,18 @@ export default function ProjectCard({project, isOpen, onToggle}: ProjectCardProp
                                 {project.extendedDescription.trim()}
                             </ReactMarkdown>
                         </div>
-                        <hr/>
+                        <hr className={classes.projectBodyHR} />
                         <div className={classes.linkSection}>
                             <h3>Links</h3>
                             <div className={classes.linkContainer}>
                                 {project.links?.map(({id, name, url}) => (
-                                    <Link key={id} href={url} className={classes.pillLink}>
+                                    <a key={id} href={url} target="_blank" rel="noopener noreferrer" className={classes.pillLink}>
                                         {name}
-                                    </Link>
+                                    </a>
                                 ))}
                             </div>
                         </div>
-                        <hr/>
+                        <hr className={classes.projectBodyHR} />
 
                         <div className={classes.techStackSection}>
                             <h3>Technologies Used</h3>

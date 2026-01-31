@@ -46,6 +46,11 @@ export default function ProjectsLayout({data}: ProjectLayoutProps) {
 
     return (
         <section className={classes.projectSection}>
+            <h2>Projects</h2>
+            <p className={classes.pageDescription}>
+                Selected projects spanning backend, frontend, and data-focused work. <br/>
+                Click a project header to expand it and view details, technologies used, and related links.
+            </p>
             {sortedProjects.map((project) => (
                 <ProjectCard
                     key={project.id}

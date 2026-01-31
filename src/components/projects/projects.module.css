@@ -6,17 +6,28 @@
     gap: 1.25rem;
 }
 
+.pageDescription {
+    max-width: 70ch;
+    text-align: center;
+}
+
+.projectArticle {
+    scroll-margin-top: calc(var(--nav-height, 4rem) + 4rem);
+}
+
 .collapsedProjectCard, .expandedProjectCard {
     padding: 0.5rem;
-    font-weight: 600;
+    width: 100%;
+    max-width: 70ch;
+    box-sizing: border-box;
+    align-items: flex-start;
 }
 
 .collapsedProjectCard {
-    align-items: flex-start;
+    font-weight: 600;
     background-color: #017C70;
     border-radius: 16px;
     padding: 1.25rem;
-    max-width: 70ch;
     line-height: 1.6;
     text-wrap: pretty;
     overflow-wrap: break-word;
@@ -28,20 +39,24 @@
 
 .projectHeader {
     justify-items: flex-start;
+    text-align: left;
     padding: 0.5rem 0;
     width: 100%;
     cursor: pointer;
 }
 
-.projectHeader hr {
+.projectHeader hr, .projectBodyHR {
     width: 100%;
-    height: 2px;
+    height: 1px;
     background-color: #D0D0D0;
     border: none;
 }
 
+.expandedProjectCard hr, .projectBodyHR {
+    background-color: #383838;
+}
+
 .expandedProjectCard {
-    align-items: flex-start;
     gap: 1rem;
     position: relative;
     font-weight: normal;
@@ -56,8 +71,6 @@
             0 1px 0 rgba(255, 255, 255, 0.06);
 
     padding: clamp(0.65rem, 2vw, 2rem);
-
-
 }
 
 .projectBody {
@@ -88,24 +101,7 @@
 }
 
 /* Generic pill (for tech stack, tags, etc.) */
-.pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0.45rem 0.9rem;
-    border-radius: 999px;
-
-    background-color: #017C70;
-    color: #e0e0e0;
-
-    font-weight: 800;
-    line-height: 1;        /* important for vertical centering */
-    white-space: nowrap;   /* keeps “Next.js” from wrapping weirdly */
-}
-
-/* Link pill (inherits pill look + hover) */
-.pillLink {
+.pill, .pillLink {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -119,7 +115,16 @@
     font-weight: 800;
     line-height: 1;
     white-space: nowrap;
+}
+
+.pillLink {
     text-decoration: none;
+}
+
+.pill, .pillLink {
+    text-align: center;
+    white-space: normal;
+    max-width: 100%;
 }
 
 .pillLink:hover {
