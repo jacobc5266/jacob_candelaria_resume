@@ -7,7 +7,10 @@ export default async function ExperiencePage() {
         throw new Error("Missing BLOB_READ_EXPERIENCE_URL");
     }
 
-    const raw = await fetch(url, { cache: "force-cache" }).then((res) => res.json());
+    const raw = await fetch(url, {
+        cache: "force-cache",
+        next: { tags: ["experience-blob"] },
+    }).then((res) => res.json());
     const data = ExperienceDocSchema.parse(raw);
 
     return (
