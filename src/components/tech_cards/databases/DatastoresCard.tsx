@@ -4,6 +4,7 @@ import {PostgresIcon} from "@/components/tech_cards/databases/PostgresIcon";
 import {DynamoDBIcon} from "@/components/tech_cards/databases/DynamoDBIcon";
 import {OracleIcon} from "@/components/tech_cards/databases/OracleIcon";
 import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
+import {DuckDBIcon} from "@/components/tech_cards/databases/DuckDBIcon";
 
 
 const FILTERED_DATASTORES: Partial<Record<StackFilter, IconItem[]>> = {
@@ -16,6 +17,7 @@ const FILTERED_DATASTORES: Partial<Record<StackFilter, IconItem[]>> = {
         { key: "postgres", label: "PostgreSQL", isPrimary: true, startYear: 2021, Icon: PostgresIcon },
         { key: "dynamodb", label: "DynamoDB", startYear: 2024, Icon: DynamoDBIcon },
         { key: "oracle", label: "Oracle", startYear: 2022, Icon: OracleIcon },
+        { key: "duckdb", label: "DuckDB", startYear: 2026, Icon: DuckDBIcon },
     ],
 };
 
