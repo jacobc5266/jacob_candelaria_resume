@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 type NextjsIconProps = React.SVGProps<SVGSVGElement>;
 

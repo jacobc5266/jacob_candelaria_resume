@@ -2,10 +2,12 @@ import type {IconItem} from "../IconItem.ts";
 import {JavaIcon} from "@/components/tech_cards/backend/JavaIcon";
 import {PythonIcon} from "@/components/tech_cards/backend/PythonIcon";
 import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
+import {CppIcon} from "@/components/tech_cards/backend/CppIcon";
 
 const BACKEND_LANGUAGES: IconItem[] = [
     { key: "java", label: "Java", isPrimary: true, startYear: 2021, Icon: JavaIcon },
-    { key: "python", label: "Python", startYear: 2022, Icon: PythonIcon }
+    { key: "python", label: "Python", startYear: 2022, Icon: PythonIcon },
+    { key: "cpp", label: "C++", startYear: 2026, Icon: CppIcon },
 
 ];
 

@@ -17,6 +17,9 @@ import {MatplotlibIcon} from "@/components/tech_cards/data/MatplotlibIcon";
 import {PandasIcon} from "@/components/tech_cards/data/PandasIcon";
 import {ScikitLearnIcon} from "@/components/tech_cards/data/ScikitLearnIcon";
 import {IconGridSection} from "@/components/tech_cards/icon_grid/IconGridSection";
+import {AWSIcon} from "@/components/tech_cards/tools/AWSIcon";
+import {VercelIcon} from "@/components/tech_cards/tools/VercelIcon";
+import {JetBrainsIcon} from "@/components/tech_cards/tools/JetBrainsIcon";
 
 
 
@@ -24,6 +27,8 @@ const ALWAYS_TOOLS: IconItem[] = [
     { key: "git", label: "Git", Icon: GitIcon },
     { key: "github", label: "GitHub", Icon: GitHubIcon },
     { key: "docker", label: "Docker", Icon: DockerIcon },
+    { key: "aws", label: "AWS", Icon: AWSIcon },
+    { key: "jetbrains", label: "JetBrains IDEs", Icon: JetBrainsIcon },
 ];
 
 const FILTERED_TOOLS: Record<StackFilter, IconItem[]> = {
@@ -35,10 +40,10 @@ const FILTERED_TOOLS: Record<StackFilter, IconItem[]> = {
         {key: "junit", label: "JUnit", Icon: JUnitIcon},
         { key: "pytest", label: "Pytest", Icon: PytestIcon },
         { key: "openapi", label: "OpenAPI", Icon: OpenApiIcon },
-        { key: "swagger", label: "Swagger", Icon: SwaggerIcon}
+        { key: "swagger", label: "Swagger", Icon: SwaggerIcon},
     ],
     frontend: [
-
+        { key: "vercel", label: "Vercel", Icon: VercelIcon},
     ],
     data: [
         { key: "jupyter", label: "Jupyter", Icon: JupyterIcon },
